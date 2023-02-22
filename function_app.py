@@ -8,13 +8,6 @@ import Slack
 
 app = func.FunctionApp()
 
-def debug(func):
-    def wrapper():
-        try:
-            func()
-        except Exception as e:
-            Slack.sendTextWithLink(str(e), "")
-@debug
 @app.function_name(name="noticeNotifierTimer")
 @app.schedule(schedule="0 */30 * * * *", arg_name="noticeNotifierTimer", run_on_startup=False,
               use_monitor=False) 
