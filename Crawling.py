@@ -125,7 +125,7 @@ class Sogang:
 
     def readDataFile(self) -> int:
         with open(self.dataFileName, 'r') as f:
-            return int(f.readline())
+            return int(f.readline().rstrip().lstrip())
 
     def existDifference(self) -> bool:
         return self.getCountAll() != self.readDataFile()
@@ -177,7 +177,7 @@ class SogangOther:
 
     def readDataFile(self) -> str:
         with open(self.dataFileName, 'r') as f:
-            return f.readline()
+            return f.readline().rstrip().lstrip()
 
     def existDifference(self) -> bool:
         return noticesToHash(self.getMostRecentNotice()) != self.readDataFile()
