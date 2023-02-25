@@ -11,6 +11,8 @@ BACHELOR_NOTICE_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=
 SCHOLARSHIP_NOTICE_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=141"
 GENERAL_SUPPORT_NOTICE_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=34"
 ONESTOP_SOGANG_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=3"
+GENERAL_NOTICE_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=1"
+FEST_SPLEC_NOTICE_LINK = "https://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=142"
 
 CSE_IMPORTANT_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=cs&bbsConfigFK=1905"
 CSE_BACHELOR_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=cs&bbsConfigFK=1745"
@@ -19,9 +21,13 @@ CSE_GENERAL_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId
 CSE_EMPLOY_INTERN_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=cs&bbsConfigFK=1748"
 CSE_CLASS_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=cs&bbsConfigFK=1749"
 
+WHOLEEDU_BACHELOR_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4875"
+WHOLEEDU_STUDENT_CONTEST_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4876"
+WHOLEEDU_GENERAL_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4877"
+WHOLEEDU_NEWS_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4878"
+
+
 PEM_FILE_LOCATION = "NoticeUpdateData/verify.pem"
-
-
 
 def numWithCommaToInt(n:str) -> int:
     res = ""
@@ -120,7 +126,7 @@ class Sogang:
         cnt = self.getCountAll()
         if self.existDifference(): self.saveDataFile(cnt)
 
-class SogangCSE:
+class SogangOther:
     def __init__(self, url:str, verifyFile:str, headers:dict, dataFileName:str, name:str) -> None:
         self.url:str = url
         self.verifyFile:str = verifyFile
