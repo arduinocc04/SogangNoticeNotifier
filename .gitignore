@@ -138,3 +138,5 @@ NoticeUpdateData/
 SlackData/
 *.txt
 *.pem
+
+log/

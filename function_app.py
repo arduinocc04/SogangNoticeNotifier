@@ -1,7 +1,19 @@
 import Crawling
 import Slack
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+logger.addHandler(stream_handler)
+file_handler = logging.FileHandler('log/noticeNotifier.log')
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def noticeNotifier() -> None:
+    logger.info("executed noticeNotifier.")
     Bachelor = Crawling.Sogang(Crawling.BACHELOR_NOTICE_LINK, Crawling.PEM_FILE_LOCATION, Crawling.HEADERS, "NoticeUpdateData/bachelor.txt", "<학사공지>")
     Scholar = Crawling.Sogang(Crawling.SCHOLARSHIP_NOTICE_LINK, Crawling.PEM_FILE_LOCATION, Crawling.HEADERS, "NoticeUpdateData/scholarship.txt", "<장학공지>")
     General = Crawling.Sogang(Crawling.GENERAL_SUPPORT_NOTICE_LINK, Crawling.PEM_FILE_LOCATION, Crawling.HEADERS, "NoticeUpdateData/generalSupport.txt", "<일반지원>")
@@ -20,6 +32,7 @@ def noticeNotifier() -> None:
     for p in posts:
         p.getSoup()
         if p.existDifference():
+            logger.info(f"{p.name} is changed.")
             mostRecentNotices = p.getMostRecentNotice()
             for title, url in mostRecentNotices:
                 Slack.sendTextWithLink(title, url)
