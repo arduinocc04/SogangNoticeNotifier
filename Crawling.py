@@ -26,6 +26,14 @@ WHOLEEDU_STUDENT_CONTEST_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardl
 WHOLEEDU_GENERAL_NOTICE_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4877"
 WHOLEEDU_NEWS_LINK = "https://scc.sogang.ac.kr/front/cmsboardlist.do?siteId=wholeperson&bbsConfigFK=4878"
 
+CHARACTERDEV_CENTER_NOTICE_LINK = "https://character.sogang.ac.kr/front/cmsboardlist.do?siteId=character&bbsConfigFK=1321"
+CHARACTERDEV_CHARACTERDEV_NOTICE_LINK = "https://character.sogang.ac.kr/front/cmsboardlist.do?siteId=character&bbsConfigFK=5232"
+
+GLOBAL_NOTICE_LINK = "https://globaledu.sogang.ac.kr/front/cmsboardlist.do?siteId=globaledu&bbsConfigFK=2586"
+GLOBAL_NEWS_LINK = "https://globaledu.sogang.ac.kr/front/cmsboardlist.do?siteId=globaledu&bbsConfigFK=2587"
+GLOBAL_GLOBALSTUDENT_ACTIVITY_NOTICE_LINK = "https://globaledu.sogang.ac.kr/front/cmsboardlist.do?siteId=globaledu&bbsConfigFK=4227"
+
+CONVERGENCEEDU_NOTICE_LINK = "https://convedu.sogang.ac.kr/front/cmsboardlist.do?siteId=convedu&bbsConfigFK=5551"
 
 PEM_FILE_LOCATION = "NoticeUpdateData/verify.pem"
 
