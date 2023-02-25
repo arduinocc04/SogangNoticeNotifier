@@ -5,7 +5,8 @@
 혹시라도 위 링크가 날아갈까봐.. pem 파일 만드는 법을 적어두면, 크롬에서 주소창 왼쪽 자물쇠 모양 클릭하면, 또 자물쇠 모양이 뜬다. 인증서 표시(인증서가 유효함으로 써져 있을 것임)를 클릭한 후 뜨는 창에서 세부 정보를 클릭하면 인증서 계층을 볼 수 있다. 이를 모두 der로 다운로드 한 후, `openssl x509 -in DER_FILE_NAME -inform DER -outform PEM >> PEM_OUT_NAME`을 모든 der 파일에 대해 반복하면 된다. PEM_OUT_NAME은 모두 같아야 한다.
 
 ## Azure functions 사용법
-vscode에서 debug 한번 누르고 deploy해야 될것..(아마? 안 해도 될지도?) V2가 좋겠지 싶어서 그냥 써봤는데.. 웬만하면 V1쓰자.. V1도 잘 안된다... V2됐다!!!!!!!!: `pip freeze > requirements.txt`해주니까 됨!!
+vscode에서 debug 한번 누르고 deploy해야 될것..(아마? 안 해도 될지도?) V2가 좋겠지 싶어서 그냥 써봤는데.. 웬만하면 V1쓰자.. V1도 잘 안된다... V2됐다!!!!!!!!: `pip freeze > requirements.txt`해주니까 됨!!  
+Azure functions에서는 File Io가 안되는듯.. File Io 쓰고 싶으면 Azure Blob Storage를 Binding 해야 하는 것 같다. 그냥 VM + crontab 쓰자..
 ### Timer Trigger
 ```python
 @app.function_name(name="TIMER_NAME")

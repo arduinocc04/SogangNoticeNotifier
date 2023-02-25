@@ -136,3 +136,7 @@ __azurite_db*__.json
 
 NoticeUpdateData/
 SlackData/
+*.txt
+*.pem
+
+log/
