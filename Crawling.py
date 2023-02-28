@@ -135,13 +135,14 @@ class Sogang:
         if self.existDifference(): self.saveDataFile(cnt)
 
 class SogangOther:
-    def __init__(self, url:str, verifyFile:str, headers:dict, dataFileName:str, name:str) -> None:
+    def __init__(self, url:str, verifyFile:str, headers:dict, dataFileName:str, name:str, urlHead:str) -> None:
         self.url:str = url
         self.verifyFile:str = verifyFile
         self.headers:dict = headers
         self.dataFileName:str = dataFileName
         self.name:str = name
         self.soup:BeautifulSoup = None #type:ignore
+        self.urlHead = urlHead
 
     def getSoup(self) -> None:
         page = requests.get(self.url, verify = self.verifyFile, headers = self.headers)
@@ -166,7 +167,7 @@ class SogangOther:
         for n in notices:
             if n.select("div")[0].find_all("span")[1].get_text().rstrip().lstrip() == mostRecentDate:
                 titleSoup:BeautifulSoup = n.select("a")[0]
-                titleLink = "https://scc.sogang.ac.kr" + titleSoup['href'].replace('¤', '&') #type:ignore
+                titleLink = self.urlHead + titleSoup['href'].replace('¤', '&') #type:ignore
                 title = self.name + titleSoup.get_text()
                 res.append((title, titleLink))
         return res
