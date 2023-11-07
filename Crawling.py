@@ -68,7 +68,7 @@ class Sogang:
         return cnt
 
     def getSoup(self) -> None:
-        page = requests.get(self.url, verify = self.verifyFile, headers = self.headers)
+        page = requests.get(self.url, verify = False, headers = self.headers)
         self.soup = BeautifulSoup(page.text, "html.parser")
 
     def getNotices(self) -> typing.List[BeautifulSoup]:
@@ -130,7 +130,7 @@ class SogangCSE:
         self.soup:BeautifulSoup = None #type:ignore
 
     def getSoup(self) -> None:
-        page = requests.get(self.url, verify = self.verifyFile, headers = self.headers)
+        page = requests.get(self.url, verify = False, headers = self.headers)
         self.soup = BeautifulSoup(page.text, "html.parser")
 
     def getNotices(self) -> ResultSet:
