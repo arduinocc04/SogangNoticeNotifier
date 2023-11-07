@@ -1,4 +1,4 @@
-import slack_sdk import WebClient
+from slack_sdk import WebClient
 
 with open('SlackData/token.txt', 'r') as f:
     TOKEN = f.readline()
