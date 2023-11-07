@@ -1,9 +1,9 @@
 from slack_sdk import WebClient
 
 with open('SlackData/token.txt', 'r') as f:
-    TOKEN = f.readline()
+    TOKEN = f.readline().strip()
 with open('SlackData/channel.txt', 'r') as f:
-    CHANNEL = f.readline()
+    CHANNEL = f.readline().strip()
 
 def sendTextWithLink(text:str, link:str) -> None:
     client = WebClient(token = TOKEN)
