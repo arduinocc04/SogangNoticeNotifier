@@ -9,5 +9,5 @@ def sendTextWithLink(text:str, link:str) -> None:
     client = WebClient(token = TOKEN)
     client.chat_postMessage(
         channel=CHANNEL,
-        text = text + "\n" + link
+        text = text + "\n" + link + "&siteGubun=1&menuGubun=1"
     )
