@@ -3,6 +3,9 @@ import Slack
 import logging
 import os
 
+def add_fd(fpath):
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), fpath)
+
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -12,9 +15,6 @@ logger.addHandler(stream_handler)
 file_handler = logging.FileHandler(add_fd('log/noticeNotifier.log'))
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
-
-def add_fd(fpath):
-    return os.path.join(os.path.dirname(os.path.abspath(__file__)), fpath)
 
 def noticeNotifier() -> None:
     logger.info("executed noticeNotifier.")
